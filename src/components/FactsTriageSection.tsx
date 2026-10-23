@@ -7,7 +7,6 @@ import {
   Search, 
   ShieldCheck, 
   Quote, 
-  Sparkles,
   PlusCircle,
   FileQuestion,
   ChevronDown,

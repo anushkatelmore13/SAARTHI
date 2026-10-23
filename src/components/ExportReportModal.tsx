@@ -8,10 +8,10 @@ interface ExportReportModalProps {
 }
 
 export const ExportReportModal: React.FC<ExportReportModalProps> = ({ caseAnalysis, onClose }) => {
-  if (!caseAnalysis) return null;
-
   const [activeTab, setActiveTab] = useState<'markdown' | 'json'>('markdown');
   const [copied, setCopied] = useState(false);
+
+  if (!caseAnalysis) return null;
 
   const generateMarkdown = () => {
     return `# SAARTHI Incident & Action Report: ${caseAnalysis.title}
@@ -102,7 +102,7 @@ ${caseAnalysis.actions.map((act, i) => `### ${i + 1}. [${act.category}] ${act.ti
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div role="dialog" aria-modal="true" aria-label="Export Structured Action Report" className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
       <div 
         className="glass-panel w-full max-w-3xl rounded-2xl border border-cyan-500/40 p-6 shadow-2xl relative space-y-4 max-h-[90vh] flex flex-col"
         onClick={e => e.stopPropagation()}

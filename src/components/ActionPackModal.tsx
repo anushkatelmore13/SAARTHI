@@ -7,12 +7,9 @@ import {
   Download, 
   PackageCheck, 
   CheckCircle2, 
-  AlertTriangle, 
   HelpCircle, 
   Send, 
-  MessageSquare,
-  Sparkles,
-  FileText
+  MessageSquare
 } from 'lucide-react';
 
 interface ActionPackModalProps {
@@ -28,10 +25,10 @@ export const ActionPackModal: React.FC<ActionPackModalProps> = ({
   actionPack,
   caseTitle,
 }) => {
-  if (!isOpen || !actionPack) return null;
-
   const [copiedSection, setCopiedSection] = useState<string | null>(null);
-  const [checklist, setChecklist] = useState(actionPack.checklist || []);
+  const [checklist, setChecklist] = useState(actionPack?.checklist || []);
+
+  if (!isOpen || !actionPack) return null;
 
   const handleToggleCheck = (id: string) => {
     setChecklist(prev =>

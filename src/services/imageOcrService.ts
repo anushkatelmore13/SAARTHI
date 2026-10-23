@@ -32,7 +32,7 @@ function decodeBase64Utf8(base64: string): string {
     try {
       const bytes = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
       return new TextDecoder('utf-8').decode(bytes);
-    } catch (_) {
+    } catch {
       return atob(base64);
     }
   }
@@ -45,7 +45,7 @@ function decodeBase64Utf8(base64: string): string {
 /** Decode a base64 string to a Latin-1 string — browser & Node compatible */
 function decodeBase64Latin1(base64: string): string {
   if (typeof atob !== 'undefined') {
-    try { return atob(base64); } catch (_) { return ''; }
+    try { return atob(base64); } catch { return ''; }
   }
   const NodeBuffer = (globalThis as any).Buffer;
   if (NodeBuffer) return NodeBuffer.from(base64, 'base64').toString('latin1');
@@ -206,7 +206,7 @@ export class ImageOcrService {
             },
           };
         }
-      } catch (_) {
+      } catch {
         // Binary scan failure is silent; fall through to default
       }
     }

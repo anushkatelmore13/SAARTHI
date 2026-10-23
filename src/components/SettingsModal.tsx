@@ -9,12 +9,12 @@ interface SettingsModalProps {
 }
 
 export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, onSettingsSaved }) => {
-  if (!isOpen) return null;
-
   const [apiKey, setApiKey] = useState(geminiService.getApiKey());
   const [model, setModel] = useState(geminiService.getModel());
   const [isTesting, setIsTesting] = useState(false);
   const [testResult, setTestResult] = useState<{ success: boolean; message: string } | null>(null);
+
+  if (!isOpen) return null;
 
   const handleSave = () => {
     geminiService.setApiKey(apiKey);
@@ -62,7 +62,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, o
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div role="dialog" aria-modal="true" aria-label="SAARTHI Engine Settings" className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
       <div 
         className="glass-panel w-full max-w-lg rounded-2xl border border-cyan-500/40 p-6 sm:p-8 shadow-2xl relative space-y-6"
         onClick={e => e.stopPropagation()}

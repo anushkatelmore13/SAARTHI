@@ -8,7 +8,6 @@ import {
   Zap, 
   Layers, 
   Sparkles, 
-  ArrowRight,
   RefreshCw,
   Check
 } from 'lucide-react';
@@ -108,7 +107,8 @@ export const SignaturePipelineFlow: React.FC<SignaturePipelineFlowProps> = ({
     }, 450);
 
     return () => clearInterval(interval);
-  }, [isProcessing]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isProcessing, steps.length]);
 
   if (!isProcessing && currentStepIndex >= steps.length) {
     return null;

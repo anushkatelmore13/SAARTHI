@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "test": "npx vite-node src/tests/imageAnalysisRegression.test.ts && npx vite-node src/tests/wildfireSafetyPlaybook.test.ts && npx vite-node src/tests/analysisOverviewPresentation.test.ts",
+    "test": "npx vite-node src/tests/imageAnalysisRegression.test.ts && npx vite-node src/tests/wildfireSafetyPlaybook.test.ts && npx vite-node src/tests/analysisOverviewPresentation.test.ts && npx vite-node src/tests/domainCoverage.test.ts",
     "preview": "vite preview"
   },
   "dependencies": {

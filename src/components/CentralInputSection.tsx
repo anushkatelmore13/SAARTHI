@@ -10,7 +10,6 @@ import {
   FileCheck,
   X,
   RefreshCw,
-  Compass,
   ArrowDownCircle,
   Shield,
   CloudSnow,
@@ -39,7 +38,7 @@ export const CentralInputSection: React.FC<CentralInputSectionProps> = ({
   const [isRecording, setIsRecording] = useState(false);
   const [recordingDuration, setRecordingDuration] = useState(0);
   const [uploadedFile, setUploadedFile] = useState<{ name: string; size: string; preview?: string } | null>(null);
-  const [speechError, setSpeechError] = useState<string | null>(null);
+  const [_speechError, setSpeechError] = useState<string | null>(null);
 
   const recognitionRef = useRef<any>(null);
   const timerRef = useRef<any>(null);
@@ -93,7 +92,7 @@ export const CentralInputSection: React.FC<CentralInputSectionProps> = ({
       if (recognitionRef.current) {
         try {
           recognitionRef.current.stop();
-        } catch (_) {}
+        } catch { }
       }
     };
   }, []);
@@ -103,7 +102,7 @@ export const CentralInputSection: React.FC<CentralInputSectionProps> = ({
       if (recognitionRef.current) {
         try {
           recognitionRef.current.stop();
-        } catch (_) {}
+        } catch { }
       }
       setIsRecording(false);
       if (timerRef.current) clearInterval(timerRef.current);
@@ -117,7 +116,7 @@ export const CentralInputSection: React.FC<CentralInputSectionProps> = ({
           timerRef.current = setInterval(() => {
             setRecordingDuration(d => d + 1);
           }, 1000);
-        } catch (err: any) {
+        } catch {
           loadSimulatedVoice();
         }
       } else {

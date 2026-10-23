@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenSettings,
   onGoHome,
   onOpenJudgePanel,
-  activeCaseCount,
+  activeCaseCount: _activeCaseCount,
   currentView,
   onViewChange,
   hasCurrentCase,

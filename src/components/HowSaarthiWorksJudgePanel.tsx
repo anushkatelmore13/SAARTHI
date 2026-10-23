@@ -5,11 +5,8 @@ import {
   ShieldCheck, 
   Target, 
   Zap, 
-  HelpCircle, 
   Award, 
-  ChevronRight,
-  Sparkles,
-  ExternalLink
+  Sparkles
 } from 'lucide-react';
 
 export const HowSaarthiWorksJudgePanel: React.FC = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CaseAnalysis } from '../types';
-import { ShieldCheck, CheckCircle2, AlertTriangle, HelpCircle, Activity } from 'lucide-react';
+import { ShieldCheck, Activity } from 'lucide-react';
 
 interface VerificationHealthWidgetProps {
   cases: CaseAnalysis[];

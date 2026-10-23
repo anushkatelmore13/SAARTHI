@@ -13,9 +13,7 @@ import {
   Send,
   PackageCheck,
   ArrowRight,
-  AlertOctagon,
-  Sparkles,
-  Info
+  AlertOctagon
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -32,7 +30,7 @@ export const ActionCenter: React.FC<ActionCenterProps> = ({
   onToggleStatus,
   onOpenWhyThisAction,
   onGenerateActionPack,
-  onToggleChecklistItem,
+  onToggleChecklistItem: _onToggleChecklistItem,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<ActionCategory | 'ALL'>('ALL');
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -66,7 +64,7 @@ export const ActionCenter: React.FC<ActionCenterProps> = ({
           origin: { y: 0.8 },
           colors: ['#06b6d4', '#10b981', '#8b5cf6'],
         });
-      } catch (_) {}
+      } catch { }
     }
   };
 

@@ -23,8 +23,7 @@ import {
   Sparkles, 
   CheckCircle2, 
   Layers, 
-  PackageCheck,
-  Award
+  PackageCheck
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -81,7 +80,7 @@ export function App() {
             origin: { y: 0.6 },
             colors: ['#06b6d4', '#a855f7', '#3b82f6'],
           });
-        } catch (_) {}
+        } catch { }
 
         showToast(
           source === 'gemini-live'
@@ -215,13 +214,20 @@ export function App() {
         origin: { y: 0.7 },
         colors: ['#10b981', '#06b6d4'],
       });
-    } catch (_) {}
+    } catch { }
 
     showToast('Missing fact resolved & verified! Plan updated in real-time.');
   };
 
   return (
     <div className="min-h-screen bg-[#060913] text-slate-100 flex flex-col mesh-grid selection:bg-cyan-500 selection:text-slate-950">
+      {/* Skip to main content — accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-cyan-600 focus:text-white focus:font-bold focus:text-sm focus:outline-none"
+      >
+        Skip to main content
+      </a>
       {/* Background radiant orbs */}
       <div className="fixed top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="fixed top-1/3 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
@@ -247,14 +253,14 @@ export function App() {
 
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 p-3.5 rounded-xl bg-slate-900/95 border border-cyan-500/60 shadow-2xl shadow-cyan-500/20 text-xs text-white font-medium flex items-center gap-2 animate-in slide-in-from-bottom duration-300">
+        <div role="status" aria-live="polite" className="fixed bottom-6 right-6 z-50 p-3.5 rounded-xl bg-slate-900/95 border border-cyan-500/60 shadow-2xl shadow-cyan-500/20 text-xs text-white font-medium flex items-center gap-2 animate-in slide-in-from-bottom duration-300">
           <CheckCircle2 className="w-4 h-4 text-cyan-400 flex-shrink-0" />
           <span>{toastMessage}</span>
         </div>
       )}
 
       {/* Main App Body */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <main id="main-content" className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* VIEW 1: LANDING / DASHBOARD */}
         {currentView === 'dashboard' && (
           <div className="space-y-10 animate-in fade-in duration-300">
@@ -463,7 +469,7 @@ export function App() {
       />
 
       <ExportReportModal
-        caseAnalysis={currentCase}
+        caseAnalysis={isExportOpen ? currentCase : null}
         onClose={() => setIsExportOpen(false)}
       />
 

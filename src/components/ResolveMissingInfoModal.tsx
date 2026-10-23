@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MissingInfoItem } from '../types';
-import { X, CheckCircle2, HelpCircle, Send, Sparkles } from 'lucide-react';
+import { X, CheckCircle2, Sparkles } from 'lucide-react';
 
 interface ResolveMissingInfoModalProps {
   item: MissingInfoItem | null;
@@ -25,7 +25,7 @@ export const ResolveMissingInfoModal: React.FC<ResolveMissingInfoModalProps> = (
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div role="dialog" aria-modal="true" aria-label="Resolve Missing Information" className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
       <div 
         className="glass-panel w-full max-w-lg rounded-2xl border border-purple-500/40 p-6 shadow-2xl relative space-y-5"
         onClick={e => e.stopPropagation()}
