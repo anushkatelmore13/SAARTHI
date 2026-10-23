@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#0f172a"/>
+  <rect x="40" y="40" width="720" height="370" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="80" y="110" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" fill="#f87171">CloudSync Pro — Critical Error</text>
+  <text x="80" y="170" font-family="monospace" font-size="22" font-weight="bold" fill="#fbbf24">Error Code: CS-503</text>
+  <text x="80" y="225" font-family="system-ui, sans-serif" font-size="20" fill="#f8fafc">Cloud storage unavailable</text>
+  <text x="80" y="280" font-family="system-ui, sans-serif" font-size="18" fill="#94a3b8">Service status: Degraded service status reported</text>
+  <text x="80" y="330" font-family="monospace" font-size="14" fill="#64748b">Host: storage-gateway-04.us-east.internal | Latency: timeout</text>
+</svg>
